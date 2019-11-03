@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Tab Tracker
 A Vue.js / Express.js web application for keeping track of guitar tabs
 
@@ -30,3 +31,7 @@ cd server
 npm install
 npm start
 ```
+=======
+# PracticeBB
+Just a little bb
+>>>>>>> b8bd772dfb29c090aa00a240f13b54624e289d91
