@@ -16,34 +16,34 @@
 </template>
 
 <script>
-import SongsPanel from './SongsPanel'
-import SongsBookmarks from './SongsBookmarks'
-import RecentlyViewedSongs from './RecentlyViewedSongs'
-import SongsSearchPanel from './SongsSearchPanel'
-import SongsService from '@/services/SongsService'
-import {mapState} from 'vuex'
+import SongsPanel from './SongsPanel';
+import SongsBookmarks from './SongsBookmarks';
+import RecentlyViewedSongs from './RecentlyViewedSongs';
+import SongsSearchPanel from './SongsSearchPanel';
+import SongsService from '@/services/SongsService';
+import { mapState } from 'vuex';
 
 export default {
   components: {
     SongsPanel,
     SongsSearchPanel,
     SongsBookmarks,
-    RecentlyViewedSongs
+    RecentlyViewedSongs,
   },
   computed: {
     ...mapState([
-      'isUserLoggedIn'
-    ])
+      'isUserLoggedIn',
+    ]),
   },
-  data () {
+  data() {
     return {
-      songs: null
-    }
+      songs: null,
+    };
   },
-  async mounted () {
-    this.songs = (await SongsService.index()).data
-  }
-}
+  async mounted() {
+    this.songs = (await SongsService.index()).data;
+  },
+};
 </script>
 
 <style scoped>

@@ -10,9 +10,9 @@
 <script>
 export default {
   props: [
-    'song'
-  ]
-}
+    'song',
+  ],
+};
 </script>
 
 <style scoped>

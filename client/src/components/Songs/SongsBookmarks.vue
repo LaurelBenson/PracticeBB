@@ -17,41 +17,41 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
-import BookmarksService from '@/services/BookmarksService'
+import { mapState } from 'vuex';
+import BookmarksService from '@/services/BookmarksService';
 
 export default {
-  data () {
+  data() {
     return {
       headers: [
         {
           text: 'Title',
-          value: 'title'
+          value: 'title',
         },
         {
           text: 'Artist',
-          value: 'artist'
-        }
+          value: 'artist',
+        },
       ],
       pagination: {
         sortBy: 'createdAt',
-        descending: true
+        descending: true,
       },
-      bookmarks: []
-    }
+      bookmarks: [],
+    };
   },
   computed: {
     ...mapState([
       'isUserLoggedIn',
-      'user'
-    ])
+      'user',
+    ]),
   },
-  async mounted () {
+  async mounted() {
     if (this.isUserLoggedIn) {
-      this.bookmarks = (await BookmarksService.index()).data
+      this.bookmarks = (await BookmarksService.index()).data;
     }
-  }
-}
+  },
+};
 </script>
 
 <style>

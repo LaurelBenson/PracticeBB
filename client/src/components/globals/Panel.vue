@@ -16,9 +16,9 @@
 <script>
 export default {
   props: [
-    'title'
-  ]
-}
+    'title',
+  ],
+};
 </script>
 
 <style scoped>

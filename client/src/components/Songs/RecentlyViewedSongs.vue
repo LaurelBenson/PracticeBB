@@ -17,41 +17,41 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
-import SongHistoryService from '@/services/SongHistoryService'
+import { mapState } from 'vuex';
+import SongHistoryService from '@/services/SongHistoryService';
 
 export default {
-  data () {
+  data() {
     return {
       headers: [
         {
           text: 'Title',
-          value: 'title'
+          value: 'title',
         },
         {
           text: 'Artist',
-          value: 'artist'
-        }
+          value: 'artist',
+        },
       ],
       pagination: {
         sortBy: 'createdAt',
-        descending: true
+        descending: true,
       },
-      histories: []
-    }
+      histories: [],
+    };
   },
   computed: {
     ...mapState([
       'isUserLoggedIn',
-      'user'
-    ])
+      'user',
+    ]),
   },
-  async mounted () {
+  async mounted() {
     if (this.isUserLoggedIn) {
-      this.histories = (await SongHistoryService.index()).data
+      this.histories = (await SongHistoryService.index()).data;
     }
-  }
-}
+  },
+};
 </script>
 
 <style>

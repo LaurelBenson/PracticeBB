@@ -23,44 +23,44 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
-import Lyrics from './Lyrics'
-import Tab from './Tab'
-import SongMetadata from './SongMetadata'
-import YouTube from './YouTube'
-import SongsService from '@/services/SongsService'
-import SongHistoryService from '@/services/SongHistoryService'
+import { mapState } from 'vuex';
+import Lyrics from './Lyrics';
+import Tab from './Tab';
+import SongMetadata from './SongMetadata';
+import YouTube from './YouTube';
+import SongsService from '@/services/SongsService';
+import SongHistoryService from '@/services/SongHistoryService';
 
 export default {
-  data () {
+  data() {
     return {
-      song: {}
-    }
+      song: {},
+    };
   },
   computed: {
     ...mapState([
       'isUserLoggedIn',
       'user',
-      'route'
-    ])
+      'route',
+    ]),
   },
-  async mounted () {
-    const songId = this.route.params.songId
-    this.song = (await SongsService.show(songId)).data
+  async mounted() {
+    const songId = this.route.params.songId;
+    this.song = (await SongsService.show(songId)).data;
 
     if (this.isUserLoggedIn) {
       SongHistoryService.post({
-        songId: songId
-      })
+        songId,
+      });
     }
   },
   components: {
     SongMetadata,
     YouTube,
     Lyrics,
-    Tab
-  }
-}
+    Tab,
+  },
+};
 </script>
 
 <style scoped>

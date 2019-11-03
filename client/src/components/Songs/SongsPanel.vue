@@ -15,7 +15,7 @@
       <v-icon>add</v-icon>
     </v-btn>
 
-    <div 
+    <div
       v-for="song in songs"
       class="song"
       :key="song.id">
@@ -36,7 +36,7 @@
             dark
             class="cyan"
             :to="{
-              name: 'song', 
+              name: 'song',
               params: {
                 songId: song.id
               }
@@ -54,23 +54,23 @@
 </template>
 
 <script>
-import SongsService from '@/services/SongsService'
+import SongsService from '@/services/SongsService';
 
 export default {
-  data () {
+  data() {
     return {
-      songs: null
-    }
+      songs: null,
+    };
   },
   watch: {
     '$route.query.search': {
       immediate: true,
-      async handler (value) {
-        this.songs = (await SongsService.index(value)).data
-      }
-    }
-  }
-}
+      async handler(value) {
+        this.songs = (await SongsService.index(value)).data;
+      },
+    },
+  },
+};
 </script>
 
 <style scoped>

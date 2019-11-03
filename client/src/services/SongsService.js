@@ -1,20 +1,20 @@
-import Api from '@/services/Api'
+import Api from '@/services/Api';
 
 export default {
-  index (search) {
+  index(search) {
     return Api().get('songs', {
       params: {
-        search: search
-      }
-    })
+        search,
+      },
+    });
   },
-  show (songId) {
-    return Api().get(`songs/${songId}`)
+  show(songId) {
+    return Api().get(`songs/${songId}`);
   },
-  post (song) {
-    return Api().post('songs', song)
+  post(song) {
+    return Api().post('songs', song);
   },
-  put (song) {
-    return Api().put(`songs/${song.id}`, song)
-  }
-}
+  put(song) {
+    return Api().put(`songs/${song.id}`, song);
+  },
+};

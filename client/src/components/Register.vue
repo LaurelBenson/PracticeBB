@@ -2,7 +2,7 @@
   <v-layout column>
     <v-flex xs6 offset-xs3>
       <panel title="Register">
-        <form 
+        <form
           name="tab-tracker-form"
           autocomplete="off">
           <v-text-field
@@ -32,34 +32,34 @@
 </template>
 
 <script>
-import AuthenticationService from '@/services/AuthenticationService'
+import AuthenticationService from '@/services/AuthenticationService';
 
 export default {
-  data () {
+  data() {
     return {
       email: '',
       password: '',
-      error: null
-    }
+      error: null,
+    };
   },
   methods: {
-    async register () {
+    async register() {
       try {
         const response = await AuthenticationService.register({
           email: this.email,
-          password: this.password
-        })
-        this.$store.dispatch('setToken', response.data.token)
-        this.$store.dispatch('setUser', response.data.user)
+          password: this.password,
+        });
+        this.$store.dispatch('setToken', response.data.token);
+        this.$store.dispatch('setUser', response.data.user);
         this.$router.push({
-          name: 'songs'
-        })
+          name: 'songs',
+        });
       } catch (error) {
-        this.error = error.response.data.error
+        this.error = error.response.data.error;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>

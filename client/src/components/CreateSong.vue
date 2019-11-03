@@ -80,10 +80,10 @@
 </template>
 
 <script>
-import SongsService from '@/services/SongsService'
+import SongsService from '@/services/SongsService';
 
 export default {
-  data () {
+  data() {
     return {
       song: {
         title: null,
@@ -93,34 +93,34 @@ export default {
         albumImageUrl: null,
         youtubeId: null,
         lyrics: null,
-        tab: null
+        tab: null,
       },
       error: null,
-      required: (value) => !!value || 'Required.'
-    }
+      required: value => !!value || 'Required.',
+    };
   },
   methods: {
-    async create () {
-      this.error = null
+    async create() {
+      this.error = null;
       const areAllFieldsFilledIn = Object
         .keys(this.song)
-        .every(key => !!this.song[key])
+        .every(key => !!this.song[key]);
       if (!areAllFieldsFilledIn) {
-        this.error = 'Please fill in all the required fields.'
-        return
+        this.error = 'Please fill in all the required fields.';
+        return;
       }
 
       try {
-        await SongsService.post(this.song)
+        await SongsService.post(this.song);
         this.$router.push({
-          name: 'songs'
-        })
+          name: 'songs',
+        });
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>

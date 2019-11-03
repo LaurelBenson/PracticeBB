@@ -8,34 +8,34 @@
 </template>
 
 <script>
-import _ from 'lodash'
+import _ from 'lodash';
 
 export default {
-  data () {
+  data() {
     return {
-      search: ''
-    }
+      search: '',
+    };
   },
   watch: {
     search: _.debounce(async function (value) {
       const route = {
-        name: 'songs'
-      }
+        name: 'songs',
+      };
       if (this.search !== '') {
         route.query = {
-          search: this.search
-        }
+          search: this.search,
+        };
       }
-      this.$router.push(route)
+      this.$router.push(route);
     }, 700),
     '$route.query.search': {
       immediate: true,
-      handler (value) {
-        this.search = value
-      }
-    }
-  }
-}
+      handler(value) {
+        this.search = value;
+      },
+    },
+  },
+};
 </script>
 
 <style>
